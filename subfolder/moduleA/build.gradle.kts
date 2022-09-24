@@ -1,4 +1,5 @@
-apply(from = "../../dependencies.gradle")
+apply("../../dependencies.gradle.kts")
+apply("../../dependencies")
 
 plugins {
     id("java")
@@ -14,4 +15,7 @@ dependencies {
     implementation("software.amazon.awssdk:ssm")
     implementation("com.fasterxml.jackson.core:jackson-databind:${project.properties["jacksonVersion"]}")
     implementation("org.assertj:assertj-core:3.20.0")
+
+    val projectDependency = rootProject.ext["libraries"] as Map<*, *>
+    testImplementation(projectDependency["junitJupiter"]!!)
 }

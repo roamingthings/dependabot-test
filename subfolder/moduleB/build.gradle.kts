@@ -1,4 +1,5 @@
-apply(from = "../../dependencies.gradle")
+apply("../../dependencies.gradle.kts")
+apply("../../dependencies")
 
 plugins {
     id("java")
